@@ -25,5 +25,4 @@ jobs:
         run: |
           echo ${{ matrix.apps }}
           arkade get ${{ matrix.apps }}
-          sudo apt update && sudo apt install -qy install file
-          file /home/runner/.arkade/bin/${{ matrix.apps }}
+          ls -l /home/runner/.arkade/bin/${{ matrix.apps }}
