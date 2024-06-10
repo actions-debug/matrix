@@ -12,10 +12,11 @@ on:
 jobs:
   arkade-e2e:
     name: arkade-e2e
-    runs-on: actuated-4cpu-12gb
+    runs-on: actuated-4cpu-4gb
     strategy:
       matrix:
-        apps: [run-job,k3sup,arkade,kubectl,faas-cli]
+        apps: [run-job,k3sup]
+        #,arkade,kubectl,faas-cli]
     steps:
       - name: Get arkade
         run: |
@@ -24,4 +25,5 @@ jobs:
         run: |
           echo ${{ matrix.apps }}
           arkade get ${{ matrix.apps }}
+          sudo apt update && sudo apt install -qy install file
           file /home/runner/.arkade/bin/${{ matrix.apps }}
