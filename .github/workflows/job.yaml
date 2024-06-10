@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  arkade-e2e:
+    name: arkade-e2e
+    runs-on: actuated-4cpu-12gb
+    strategy:
+      matrix:
+        apps: [run-job,k3sup,arkade,kubectl,faas-cli]
+    steps:
+      - name: Get arkade
+        run: |
+          curl -sLS https://get.arkade.dev | sudo sh
+      - name: Download app
+        run: |
+          echo ${{ matrix.apps }}
+          arkade get ${{ matrix.apps }}
+          file /home/runner/.arkade/bin/${{ matrix.apps }}
