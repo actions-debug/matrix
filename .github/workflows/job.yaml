@@ -26,4 +26,3 @@ jobs:
         run: |
           echo ${{ matrix.apps }}
           sleep 30
-
