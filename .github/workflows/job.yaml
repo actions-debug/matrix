@@ -16,7 +16,7 @@ jobs:
     runs-on: actuated-4cpu-4gb
     strategy:
       matrix:
-        apps: [run-job,k3sup]
+        apps: [run-job,k3sup,arkade,kubectl]
         #,arkade,kubectl,faas-cli]
     steps:
       - name: Get arkade
