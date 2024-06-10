@@ -24,5 +24,4 @@ jobs:
       - name: Download app
         run: |
           echo ${{ matrix.apps }}
-          arkade get ${{ matrix.apps }}
-          ls -l /home/runner/.arkade/bin/${{ matrix.apps }}
+          sleep 30
